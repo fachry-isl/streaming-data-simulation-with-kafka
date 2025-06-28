@@ -31,3 +31,21 @@ services:
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
     depends_on:
       - kafka
+
+  # FastAPI application
+  iot-producer:
+    build: .
+    container_name: iot-producer
+    depends_on:
+      - kafka
+    ports:
+      - "8000:8000"
+    environment:
+      KAFKA_BROKER: "kafka:9092" # Use internal Docker network name
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+# ["/wait-for-kafka.sh", "kafka", "9092", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
