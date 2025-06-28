@@ -32,8 +32,8 @@ This project provides a **FastAPI** application for simulating and streaming IoT
 ### 2. Clone the Repository
 
 ```sh
-git clone <your-repo-url>
-cd 21. simulate streaming data
+git clone https://github.com/fachry-isl/streaming-data-simulation-with-kafka.git
+cd streaming-data-simulation-with-kafka
 ```
 
 ### 3. Start All Services
