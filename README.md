@@ -76,6 +76,12 @@ This will start:
 | GET    | `/send-tiny-message` | Send a minimal message to Kafka         |
 | GET    | `/iot-data`          | Send a random IoT message to Kafka      |
 
+
+Example Usage:
+```bash
+curl -X POST "http://localhost:8000/simulate?count=50"
+```
+
 ---
 
 ## Configuration
